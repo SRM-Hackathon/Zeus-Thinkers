@@ -1,0 +1,287 @@
+{
+  "intents": [
+    {
+      "intent": "aggravated_penetration",
+      "examples": [
+        {
+          "text": "A armed men raped my child"
+        },
+        {
+          "text": "A gang of people raped my 16 year old child"
+        },
+        {
+          "text": "A goverment servant raped my daughter"
+        },
+        {
+          "text": "A group of boys from the next street raped my daughter when she came alone"
+        },
+        {
+          "text": "A group of policemen raped my daughter"
+        },
+        {
+          "text": "a policemen raped my daughter"
+        },
+        {
+          "text": "A private medical staff raped my daugter"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Aggravatedsexualassault",
+      "examples": [
+        {
+          "text": "management or on the staff of a jail, remand home, protection home, observation home, or other place of custody or care and protection established by or under any law for the time being in force, commits penetrative sexual assault on a child"
+        },
+        {
+          "text": "my child got Aggravated sexual assault"
+        },
+        {
+          "text": "my child got commits penetrative sexual assault on a child by any Government or private staff"
+        },
+        {
+          "text": "police officer commits sexual assault on a child"
+        }
+      ]
+    },
+    {
+      "intent": "definition",
+      "examples": [
+        {
+          "text": "Define"
+        },
+        {
+          "text": "give me a brief on"
+        },
+        {
+          "text": "give me a note on"
+        },
+        {
+          "text": "give me the definition of"
+        },
+        {
+          "text": "show me what is"
+        },
+        {
+          "text": "tell me about"
+        },
+        {
+          "text": "what is known as"
+        },
+        {
+          "text": "what is meant by"
+        }
+      ]
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "good night"
+        },
+        {
+          "text": "helo"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "intent",
+      "examples": []
+    },
+    {
+      "intent": "penetration",
+      "examples": [
+        {
+          "text": "A person raped my daughter"
+        },
+        {
+          "text": "My daughter got raped"
+        },
+        {
+          "text": "someone raped my daughter"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "pornography",
+      "examples": [
+        {
+          "text": "camera in hotel rooms"
+        },
+        {
+          "text": "captured video of my private parts in hotel room"
+        },
+        {
+          "text": "net centre"
+        },
+        {
+          "text": "some one captured my dressing video in trial room"
+        },
+        {
+          "text": "Someone intentiolly captured a girls private parts"
+        },
+        {
+          "text": "some one taken video of my daughter private parts"
+        },
+        {
+          "text": "Someone took video of my daughter private parts"
+        },
+        {
+          "text": "took porn video of child"
+        }
+      ]
+    },
+    {
+      "intent": "Sexualassault",
+      "examples": [
+        {
+          "text": "my child get sexual assault in the bus"
+        },
+        {
+          "text": "my child get sexual intent touches the vagina, penis, anus or breast of the child"
+        },
+        {
+          "text": "my daughter get wrong touch in private parts"
+        }
+      ]
+    },
+    {
+      "intent": "Thanking_you",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "good bye"
+        },
+        {
+          "text": "Thank you"
+        },
+        {
+          "text": "Thank you so much"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "age",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "@sys.number",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_10_1615657127149",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "conditions": "",
+      "dialog_node": "node_10_1615657127149",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, I am  the law"
+              },
+              {
+                "text": "Hi,How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "POCSO",
+  "language": "en",
+  "description": ""
+}
