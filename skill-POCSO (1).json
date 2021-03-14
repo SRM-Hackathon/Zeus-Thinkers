@@ -1,0 +1,571 @@
+{
+  "intents": [
+    {
+      "intent": "aggravated_penetration",
+      "examples": [
+        {
+          "text": "A armed men raped my child"
+        },
+        {
+          "text": "A gang of people raped my 16 year old child"
+        },
+        {
+          "text": "A goverment servant raped my daughter"
+        },
+        {
+          "text": "A group of boys from the next street raped my daughter when she came alone"
+        },
+        {
+          "text": "A group of policemen raped my daughter"
+        },
+        {
+          "text": "a policemen raped my daughter"
+        },
+        {
+          "text": "A private medical staff raped my daugter"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Aggravatedsexualassault",
+      "examples": [
+        {
+          "text": "management or on the staff of a jail, remand home, protection home, observation home, or other place of custody or care and protection established by or under any law for the time being in force, commits penetrative sexual assault on a child"
+        },
+        {
+          "text": "my child got Aggravated sexual assault"
+        },
+        {
+          "text": "my child got commits penetrative sexual assault on a child by any Government or private staff"
+        },
+        {
+          "text": "police officer commits sexual assault on a child"
+        }
+      ]
+    },
+    {
+      "intent": "definition",
+      "examples": [
+        {
+          "text": "Define"
+        },
+        {
+          "text": "give me a brief on"
+        },
+        {
+          "text": "give me a note on"
+        },
+        {
+          "text": "give me the definition of"
+        },
+        {
+          "text": "show me what is"
+        },
+        {
+          "text": "tell me about"
+        },
+        {
+          "text": "what is known as"
+        },
+        {
+          "text": "what is meant by"
+        }
+      ]
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "good evening"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "good night"
+        },
+        {
+          "text": "helo"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "penetration",
+      "examples": [
+        {
+          "text": "A person raped my daughter"
+        },
+        {
+          "text": "My daughter got raped"
+        },
+        {
+          "text": "someone raped my daughter"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "pornography",
+      "examples": [
+        {
+          "text": "camera in hotel rooms"
+        },
+        {
+          "text": "captured video of my private parts in hotel room"
+        },
+        {
+          "text": "net centre"
+        },
+        {
+          "text": "some one captured my dressing video in trial room"
+        },
+        {
+          "text": "Someone intentiolly captured a girls private parts"
+        },
+        {
+          "text": "some one taken video of my daughter private parts"
+        },
+        {
+          "text": "Someone took video of my daughter private parts"
+        },
+        {
+          "text": "took porn video of child"
+        }
+      ]
+    },
+    {
+      "intent": "punishmentforpenetration",
+      "examples": [
+        {
+          "text": "Give me the punishment for penetration"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Sexualassault",
+      "examples": [
+        {
+          "text": "my child get sexual assault in the bus"
+        },
+        {
+          "text": "my child get sexual intent touches the vagina, penis, anus or breast of the child"
+        },
+        {
+          "text": "my daughter get wrong touch in private parts"
+        }
+      ]
+    },
+    {
+      "intent": "Thanking_you",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "good bye"
+        },
+        {
+          "text": "Thank you"
+        },
+        {
+          "text": "Thank you so much"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "choice",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": false
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enter age"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1615692212707"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter a valid number"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1615692213381",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1615692213416",
+      "previous_sibling": "handler_3_1615692213416"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1615692213381",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_3_1615692213416"
+    },
+    {
+      "type": "standard",
+      "title": "choice",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Please enter the victim's age"
+              },
+              {
+                "text": "Kindly enter the victim's age"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@choice",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1615670891398",
+      "previous_sibling": "node_2_1615705778179"
+    },
+    {
+      "type": "standard",
+      "title": "penetrativeassault",
+      "output": {
+        "generic": [
+          {
+            "query": "section 3",
+            "filter": "Penetrative sexual assault",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          },
+          {
+            "values": [
+              {
+                "text": "Punishment:\nWhoever commits penetrative sexual assault shall be punished with imprisonment of either description for a term which shall not be less than twenty years but which may extend to imprisonment for life, and shall also be liable to fine."
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#penetration",
+      "dialog_node": "node_1_1615672721021",
+      "previous_sibling": "slot_4_1615692213381"
+    },
+    {
+      "type": "standard",
+      "title": "Aggravated_penetrative",
+      "output": {
+        "generic": [
+          {
+            "query": "section 5",
+            "filter": "aggravated penetrative sexual assault",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          },
+          {
+            "values": [
+              {
+                "text": "Punishment:\nWhoever commits aggravated penetrative sexual assault shall be punished with rigorous imprisonment for a term which shall not be less than twenty years, but which may extend to imprisonment for life, which shall mean imprisonment for the remainder of natural life of that person and shall also be liable to fine, or with death.\n The fine imposed shall be just and reasonable and paid to the victim to meet the medical expenses and rehabilitation of such victim\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "conditions": "#aggravated_penetration",
+      "dialog_node": "node_2_1615675060581",
+      "previous_sibling": "node_1_1615672721021"
+    },
+    {
+      "type": "standard",
+      "title": "greetings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " I am  the LAW FINDER BOT. I am here to resolve your doubts or query.\nKindly ,\nTo input your query type-yes\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1615705778179"
+    },
+    {
+      "type": "standard",
+      "title": "THANKYOU",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your welcome"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Thanking_you",
+      "dialog_node": "node_2_1615713773955",
+      "previous_sibling": "node_1_1615670891398"
+    },
+    {
+      "type": "standard",
+      "title": "sexual_assault",
+      "output": {
+        "generic": [
+          {
+            "query": "section 7",
+            "filter": "sexual assault",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          },
+          {
+            "values": [
+              {
+                "text": "Punishment:\n Whoever, commits sexual assault, shall be punished with imprisonment of either description for a term which shall not be less than three years but which may extend to five years, and shall also be liable to fine."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "conditions": "#Sexualassault",
+      "dialog_node": "node_3_1615675085262",
+      "previous_sibling": "node_2_1615675060581"
+    },
+    {
+      "type": "standard",
+      "title": "query",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry!  POCSO act is appicable only for those who are lesser than the age of 18"
+              },
+              {
+                "text": "Sorry for the inconvience since POCSO act is not applicable for those who are greater than the age of 18"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1615670891398",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1615670891398"
+      },
+      "conditions": "@sys-number >= 18",
+      "dialog_node": "node_4_1615671324210",
+      "previous_sibling": "node_7_1615671872258"
+    },
+    {
+      "type": "frame",
+      "title": "query",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Kindly enter the query"
+              },
+              {
+                "text": "Tell me about the problem"
+              },
+              {
+                "text": "Submit your query"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1615670891398",
+      "conditions": "@sys-number<18",
+      "dialog_node": "node_7_1615671872258"
+    },
+    {
+      "type": "standard",
+      "title": "Aggaragated_sexual",
+      "output": {
+        "generic": [
+          {
+            "query": "section 9",
+            "filter": "aggragated sexual assault",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          },
+          {
+            "values": [
+              {
+                "text": "Punishment:\nWhoever, commits aggravated sexual assault shall be punished with imprisonment of either description for a term which shall not be less than five years but which may extend to seven years, and shall also be liable to fine\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "conditions": "#Aggravatedsexualassault",
+      "dialog_node": "node_7_1615675181498",
+      "previous_sibling": "node_3_1615675085262"
+    },
+    {
+      "type": "standard",
+      "title": "Child_pornography",
+      "output": {
+        "generic": [
+          {
+            "query": "section 13",
+            "filter": "use of child for pornographic purpose",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          },
+          {
+            "values": [
+              {
+                "text": "Punishment:\nWhoever uses a child or children for pornographic purposes shall be punished with imprisonment for a term which shall not be less than five years and shall also be liable to fine and in the event of second or subsequent conviction with imprisonment for a term which shall not be less than seven years and also be liable to fine"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1615671872258",
+      "conditions": "#pornography",
+      "dialog_node": "node_9_1615675209730",
+      "previous_sibling": "node_7_1615675181498"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "query": "section 3",
+            "filter": "Penetrative sexual assault",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "parent": "node_1_1615672721021",
+      "disabled": true,
+      "dialog_node": "response_10_1615691048583"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1615671872258",
+      "variable": "$number",
+      "dialog_node": "slot_4_1615692213381",
+      "previous_sibling": "handler_1_1615692212707"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "POCSO",
+  "language": "en",
+  "description": ""
+}
